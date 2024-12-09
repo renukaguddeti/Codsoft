@@ -24,7 +24,7 @@ class RockPaperScissorsGame(QMainWindow):
         
         # Set background color
         palette = QPalette()
-        palette.setColor(QPalette.Window, QColor("#f9f9f9"))  # Very light gray
+        palette.setColor(QPalette.Window, QColor("#f0f8ff"))  # Alice Blue
         self.setPalette(palette)
         
         # Labels
@@ -45,24 +45,46 @@ class RockPaperScissorsGame(QMainWindow):
         self.paper_button = QPushButton("Paper", self)
         self.scissors_button = QPushButton("Scissors", self)
         
-        # Style buttons (Pastel Lavender)
-        button_style = """
+        # Style buttons with unique colors
+        self.rock_button.setStyleSheet("""
             QPushButton {
-                background-color: #dcd6f7;  /* Pastel Lavender */
-                color: black;
+                background-color: #ff6347;  /* Tomato */
+                color: white;
                 font-size: 14px;
                 font-weight: bold;
                 border-radius: 8px;
                 padding: 10px;
             }
             QPushButton:hover {
-                background-color: #c6b9f0;  /* Slightly darker lavender */
-                color: white;
+                background-color: #e55341;  /* Darker Tomato */
             }
-        """
-        self.rock_button.setStyleSheet(button_style)
-        self.paper_button.setStyleSheet(button_style)
-        self.scissors_button.setStyleSheet(button_style)
+        """)
+        self.paper_button.setStyleSheet("""
+            QPushButton {
+                background-color: #4682b4;  /* Steel Blue */
+                color: white;
+                font-size: 14px;
+                font-weight: bold;
+                border-radius: 8px;
+                padding: 10px;
+            }
+            QPushButton:hover {
+                background-color: #3a6a92;  /* Darker Steel Blue */
+            }
+        """)
+        self.scissors_button.setStyleSheet("""
+            QPushButton {
+                background-color: #32cd32;  /* Lime Green */
+                color: white;
+                font-size: 14px;
+                font-weight: bold;
+                border-radius: 8px;
+                padding: 10px;
+            }
+            QPushButton:hover {
+                background-color: #2da82d;  /* Darker Lime Green */
+            }
+        """)
         
         # Connect buttons to actions
         self.rock_button.clicked.connect(lambda: self.play_round("rock"))
